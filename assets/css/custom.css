@@ -1,0 +1,7 @@
+/* Custom CSS for background image */
+.about-us-background {
+    background-image: url('../img/your-image.jpg'); /* Replace with the actual image path */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; /* Adjust padding as needed */
+}

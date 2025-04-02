@@ -1,0 +1,252 @@
+
+
+html {font-family: 'Open Sans', sans-serif;}
+/* Typography */
+p, a {font-weight: 400;}
+.h2 {font-size: 40px;}
+.h3 {font-size: 28px;}
+.light-300 {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 300;
+}
+.regular-400 {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 400;
+}
+.semi-bold-600 {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 600;
+}
+.typo-space-line::after,
+.typo-space-line-center::after {
+  content: "";
+  width: 150px;
+  display:block;
+  position: absolute;
+  border-bottom:  5px solid #123524;
+  padding-top: .5em;
+}
+.typo-space-line-center::after {
+  left: 50%;
+  margin-left: -75px;
+}
+/* Main Nav */
+/* Sticky Navbar */
+#main_nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures the navbar stays on top of other elements */
+  background-color: #123524; /* Optional: Set a default background color */
+  transition: background-color 0.3s ease; /* Smooth transition for background color changes */
+}
+#main_nav .nav-item .nav-link:hover {color: #fff;}
+.navbar-scrolled {
+  background-color: #123524; /* Change to your desired color */
+  transition: background-color 0.3s ease;
+}
+/* Home */
+#particles-js {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#index_banner {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this container */
+  background-image: url('./../img/1.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  min-height: 60vh;
+  width: 100%;
+  overflow: hidden; /* Prevent content overflow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow around the banner */
+}
+
+#index_banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 53, 36, 0.6); /* Dark green with 60% opacity */
+  z-index: 1; /* Ensure it appears above the image but below the text */
+}
+
+#index_banner .carousel-item img {
+  position: relative;
+  z-index: 0; /* Ensure the image is below the overlay */
+  filter: brightness(0.9); /* Slightly dim the image for better text contrast */
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2; /* Ensure the text is above the overlay */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow to the text for better readability */
+}
+
+.banner-heading {
+  font-size: 3.5rem; /* Larger font size for better visibility */
+  font-weight: bold;
+  color: #EFE3C2; /* Light cream color for the heading */
+}
+
+.banner-body {
+  font-size: 1.2rem; /* Slightly larger text for readability */
+  color: #fff; /* Light green for body text */
+  line-height: 1.8; /* Increase line spacing for better readability */
+}
+
+
+.banner-button {
+  border-color: #3E7B27; /* Medium green for button border */
+  color: #EFE3C2; /* Light cream for button text */
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  background-color: #3E7B27; /* Add a green background to the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow to the button */
+  transition: all 0.3s ease-in-out;
+  margin-top: 1.5rem; /* Add space above the button */
+  position: relative;
+  top: -10px; /* Elevate the button slightly */
+}
+
+.banner-button:hover {
+  background-color: #123524; /* Medium green on hover */
+  color: #EFE3C2; /* Light cream text on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+}
+
+#index_banner .carousel-control-prev i,
+#index_banner .carousel-control-next i {
+  color: #123524 !important;
+  text-decoration: none;
+  font-size: 4em;
+}
+#index_banner .carousel-inner {
+  height: 80vh;
+}
+#index_banner .carousel-indicators li,
+#index_banner .carousel-indicators.active {
+  background-color: #123524 !important;
+}
+.service-wrapper .service-footer {
+  max-width: 720px;
+}
+.service-work.card {
+  border-radius: 10px !important;
+  cursor: pointer;
+}
+.service-work .service-work-vertical {
+	background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgb(18, 53, 36) 0%,rgba(18, 53, 36, 0.466)33.33%, rgb(62, 123, 39) 66.66%, rgb(133, 169, 71) 99.99%);
+  background-size: 300% 300%;
+  background-position: 0% 100%;
+  transition: .5s;
+}
+.service-work .service-work-vertical:hover {
+  background-position: 0% 0%;
+  transition: .5s;
+}
+.service-work .service-work-vertical:hover * {
+  color: #000;
+  border-color: #000;
+  transition: .5s;
+}
+.recent-work.card{
+  border-radius: 10px !important;
+}
+.recent-work .recent-work-vertical {
+	background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 33.333%, rgb(18, 53, 36) 66.666%, rgba(255,255,255,0) 99.999%);
+  background-size: 300% 300%;
+  background-position: 0% 100%;
+  transition: .5s;
+  cursor: pointer;
+}
+.recent-work .recent-work-vertical:hover {
+  background-position: 0% 0%;
+  transition: .5s;
+}
+.recent-work .recent-work-vertical:hover div.recent-work-content {
+  top: 50%;
+  margin-top: -2.5em;
+  position: absolute;
+}
+.recent-work .recent-work-vertical:hover * {
+  color: white;
+  transition: .5s;
+}
+/* About */
+#work_banner {
+  background-image: url('./../img/banner-bg-02.jpg');
+  background-position: center center; background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.progress {
+  height: 8px;
+}
+.objective-icon {
+  border-radius: 13px;
+  width: 8rem;
+}
+.partner-wap {
+  background-color: #7276ec;
+  transition: 1s;
+  cursor: pointer;
+}
+.partner-wap:hover {
+  background-color: #b1b3f5;
+}
+.why-us {
+  background: rgb(239,239,253);
+  background: -moz-linear-gradient(0deg, rgba(239,239,253,1) 50%, rgba(255,255,255,1) 50%);
+  background: -webkit-linear-gradient(0deg, rgba(239,239,253,1) 50%, rgba(255,255,255,1) 50%);
+  background: linear-gradient(0deg, rgba(239,239,253,1) 50%, rgba(255,255,255,1) 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efeffd",endColorstr="#ffffff",GradientType=1);
+}
+.team-member-img {
+  transition-duration: 0.15s;
+}
+.team-member:hover .team-member-img {
+  padding: 10px !important;
+}
+
+/* Work */
+/* Singel Work */
+#work_single_banner {
+  background-image: url('./../img/banner-bg-02.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.related-content {
+  border-radius: 20px;
+  cursor: pointer;
+}
+/* Pricing */
+.pricing-list {
+  margin-bottom: 1px;
+}
+.pricing-table {
+  max-width: 350px;
+  margin: auto;
+}
+.pricing-table,
+.pricing-horizontal {
+  border-radius: 15px !important;
+}
+/* Contact */
+#floatingtextarea {
+  height: 150px
+}
+/* Footer */
+footer a.text-light:hover {
+  color: #bfbfbf !important;
+  transition-duration: 0.15s;
+}

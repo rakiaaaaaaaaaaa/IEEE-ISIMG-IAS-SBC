@@ -1,0 +1,37 @@
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply fade-in to banner headings */
+.banner-heading {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Apply slide-in to service cards */
+.service-work {
+    animation: slideIn 0.5s ease-in-out forwards;
+}
+
+/* Button hover effect */
+.banner-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}

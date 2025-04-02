@@ -1,0 +1,48 @@
+/* Fade-in effect for the navbar */
+#main_nav {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+#main_nav.scrolled {
+    opacity: 1;
+}
+
+/* Slide-in effect for the banner text and buttons */
+.banner-heading,
+.banner-body,
+.banner-button {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.banner-vertical-center-index {
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scale-up effect for the service cards on hover */
+.service-work {
+    transition: transform 0.3s ease;
+}
+
+.service-work:hover {
+    transform: scale(1.05);
+}
+
+/* Fade-in effect for the footer */
+footer {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+footer.visible {
+    opacity: 1;
+}

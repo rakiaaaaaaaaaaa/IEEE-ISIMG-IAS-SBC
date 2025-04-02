@@ -1,0 +1,53 @@
+/* Change background color for footer */
+footer {
+    background-color: red; /* Set the background color to red */
+}
+
+/* Fade-in Animation for Header and Footer */
+
+/* Remove duplicate fade-in animation for footer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-in Animation for Navbar Items */
+@keyframes slideInNavbar {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animations */
+
+/* Footer Link Hover Effect */
+footer a {
+    color: #ffffff; /* Default color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+footer a:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+/* Fade-in Animation for Footer */
+footer {
+    animation: fadeIn 0.5s ease forwards; /* Fade-in effect for footer */
+}
+header, footer {
+    animation: fadeIn 0.5s ease forwards; /* Fade-in effect for header and footer */
+}
+
+.navbar-nav .nav-item {
+    animation: slideInNavbar 0.5s ease forwards; /* Slide-in effect for navbar items */
+    animation-delay: calc(var(--i) * 0.1s); /* Staggered animation for each item */
+}

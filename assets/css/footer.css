@@ -1,0 +1,25 @@
+/* Footer Styles */
+.footer {
+    background-color: #3f51b5; /* Background color for the footer */
+    padding: 40px 0; /* Padding for the footer */
+}
+
+.footer-link {
+    color: white; /* Color for footer links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer-social {
+    color: white; /* Color for social icons */
+    margin: 0 10px; /* Margin between social icons */
+}
+
+.footer-copyright {
+    background-color: rgba(0, 0, 0, 0.2); /* Background for copyright section */
+    padding: 10px 0; /* Padding for copyright section */
+    color: white; /* Color for copyright text */
+}
