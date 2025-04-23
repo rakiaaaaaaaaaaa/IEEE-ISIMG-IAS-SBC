@@ -241,40 +241,36 @@ https://templatemo.com/tm-561-purple-buzz
     <!-- Custom -->
     <script src="assets/js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzxUwzQ3uE1TttVkd3X83GaJyXWqRHzrf64qSIaapDm/dev";
-        const form = document.querySelector("form"); // Select the form element
+   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx-vIpXzPNLyvdO6oLFSGjLR4O70ogEiiyrDZCeeSZK3GXl0pF3llD5bIKJSDgwxmfqgQ/exec';
+    const form = document.querySelector('form.contact-form'); // Ensure the form is correctly selected
 
-        form.addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent the default form submission behavior
+    form.addEventListener('submit', e => {
+        e.preventDefault(); // Prevent default form submission behavior
 
-            // Collect form data
-            const formData = new FormData(form);
-
-            // Append form data (if needed for additional processing)
-            formData.append("name", document.getElementById("floatingname").value);
-            formData.append("email", document.getElementById("floatingemail").value);
-            formData.append("phone", document.getElementById("floatingphone").value);
-            formData.append("company", document.getElementById("floatingcompany").value);
-            formData.append("subject", document.getElementById("floatingsubject").value);
-            formData.append("message", document.getElementById("floatingtextarea").value);
-
-            // Send the form data to Google Apps Script
-            fetch(scriptURL, { method: "POST", body: formData })
-                .then((response) => {
-                    if (response.ok) {
-                        swal.fire("Done", "Submitted Successfully.", "success"); // Show success alert
-                        form.reset(); // Reset the form after successful submission
-                    } else {
-                        throw new Error("Network response was not ok.");
-                    }
-                })
-                .catch((error) => {
-                    swal.fire("Error", "Something went wrong. Please try again!", "error"); // Show error alert
-                    console.error("Error:", error); // Log the error for debugging
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (response.ok) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank you!',
+                        text: 'Your form has been submitted successfully.',
+                    });
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: 'Something went wrong. Please try again later.',
                 });
-        });
-    </script>
+                console.error('Error!', error.message);
+            });
+    });
+</script>
     <script>
         (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="M6keLaBimYIJ_Nm3jg1R4";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
         </script>
