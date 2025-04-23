@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>About Page</title>
+    <title>Contact Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel=" icon" type="image/x-icon" href="assets/img/logo.png">
@@ -17,6 +17,29 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Footer CSS -->
     <link rel="stylesheet" href="assets/css/footer.css">
+    <style>
+        .btn-custom {
+            background-color: #3E7B27; /* Couleur personnalisée */
+            border-color: #3E7B27;
+            color: #fff; /* Couleur du texte */
+        }
+        .btn-custom:hover {
+            background-color: #2C5A1D; /* Couleur au survol */
+            border-color: #2C5A1D;
+        }
+    </style>
+    <style>
+        .swal-custom-btn {
+            background-color: #3E7B27 !important; /* Couleur personnalisée */
+            color: #fff !important; /* Couleur du texte */
+            border: none !important;
+            border-radius: 5px !important;
+            padding: 10px 20px !important;
+        }
+        .swal-custom-btn:hover {
+            background-color: #2C5A1D !important; /* Couleur au survol */
+        }
+    </style>
 <!--
     
 TemplateMo 561 Purple Buzz
@@ -87,45 +110,47 @@ https://templatemo.com/tm-561-purple-buzz
     <div class="row justify-content-center pb-4">
         <!-- Start Contact Form -->
         <div class="col-lg-8">
-            <form class="contact-form row" method="post" action="https://script.google.com/macros/s/AKfycbzxUwzQ3uE1TttVkd3X83GaJyXWqRHzrf64qSIaapDm/dev" role="form">
+            <form class="contact-form row" method="POST" action="https://api.web3forms.com/submit">
+                <input type="hidden" name="access_key" value="d37e78b1-5968-475e-9715-3e4878a02f87">
+
                 <div class="col-lg-6 mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="inputname" placeholder="Name" required>
+                        <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="name" placeholder="Name" required>
                         <label for="floatingname">Name</label>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="form-floating">
-                        <input type="email" class="form-control form-control-lg light-300" id="floatingemail" name="inputemail" placeholder="Email" required>
+                        <input type="email" class="form-control form-control-lg light-300" id="floatingemail" name="email" placeholder="Email" required>
                         <label for="floatingemail">Email</label>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control form-control-lg light-300" id="floatingphone" name="inputphone" placeholder="Phone">
+                        <input type="text" class="form-control form-control-lg light-300" id="floatingphone" name="phone" placeholder="Phone">
                         <label for="floatingphone">Phone</label>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control form-control-lg light-300" id="floatingcompany" name="inputcompany" placeholder="Company Name">
-                        <label for="floatingcompany">Company Name</label>
+                        <input type="text" class="form-control form-control-lg light-300" id="floatingcompany" name="company" placeholder="Company Name">
+                        <label for="floatingcompany">Institute Name</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control form-control-lg light-300" id="floatingsubject" name="inputsubject" placeholder="Subject">
+                        <input type="text" class="form-control form-control-lg light-300" id="floatingsubject" name="subject" placeholder="Subject">
                         <label for="floatingsubject">Subject</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating mb-3">
-                        <textarea class="form-control light-300" rows="8" placeholder="Message" id="floatingtextarea" name="inputmessage" required></textarea>
+                        <textarea class="form-control light-300" rows="8" placeholder="Message" id="floatingtextarea" name="message" required></textarea>
                         <label for="floatingtextarea">Message</label>
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Send Message</button>
+                    <button type="submit" class="btn btn-custom rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Send Message</button>
                 </div>
             </form>
         </div>
@@ -241,39 +266,60 @@ https://templatemo.com/tm-561-purple-buzz
     <!-- Custom -->
     <script src="assets/js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx-vIpXzPNLyvdO6oLFSGjLR4O70ogEiiyrDZCeeSZK3GXl0pF3llD5bIKJSDgwxmfqgQ/exec';
-    const form = document.querySelector('form.contact-form'); // Ensure the form is correctly selected
-
-    form.addEventListener('submit', e => {
-        e.preventDefault(); // Prevent default form submission behavior
-
-        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-            .then(response => {
-                if (response.ok) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thank you!',
-                        text: 'Your form has been submitted successfully.',
-                    });
-                    form.reset(); // Reset the form after successful submission
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch(error => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops!',
-                    text: 'Something went wrong. Please try again later.',
-                });
-                console.error('Error!', error.message);
-            });
-    });
-</script>
     <script>
-        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="M6keLaBimYIJ_Nm3jg1R4";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-        </script>
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Empêche le comportement par défaut du formulaire
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Message Sent!',
+                            text: 'Thank you! Your message has been successfully sent.',
+                            confirmButtonText: 'OK',
+                            customClass: {
+                                confirmButton: 'swal-custom-btn', // Classe personnalisée
+                            },
+                            timer: 3000,
+                            timerProgressBar: true,
+                            position: 'center',
+                        });
+                        form.reset(); // Réinitialise le formulaire après l'envoi
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: 'Oops! Something went wrong. Please try again.',
+                            confirmButtonText: 'OK',
+                            customClass: {
+                                confirmButton: 'swal-custom-btn', // Classe personnalisée
+                            },
+                            position: 'center',
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Oops! Something went wrong. Please try again.',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            confirmButton: 'swal-custom-btn', // Classe personnalisée
+                        },
+                        position: 'center',
+                    });
+                });
+        });
+    </script>
+    
+    
 
 </body>
 
